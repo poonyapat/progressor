@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: undefined
+    user: undefined,
+    projects: ['project-a', 'project-b', 'project-c']
   },
   mutations: {
     updateUser (state, user) {
