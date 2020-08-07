@@ -1,12 +1,10 @@
 <template>
-<v-layout justify-center fill-height align-center>
-  {{projectName}}
-</v-layout>
+  <v-container justify-center fill-height align-center>
+    {{projectName}}
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
 }
 </script>

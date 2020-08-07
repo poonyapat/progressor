@@ -20,16 +20,16 @@ export default {
   watch: {
     user() {
       if (this.user && this.$router.currentRoute.name == 'Home'){
-        this.$router.push({name: 'Projects'})
+        this.$router.push({name: 'Projects'}).catch(err => {err})
       }
       else if (!this.user){
-        this.$router.push({name: 'Home'})
+        this.$router.push({name: 'Home'}).catch(err => {err})
       }
     }
   },
   mounted () {
     if (!this.user){
-      this.$router.push({name: 'Home'})
+      this.$router.push({name: 'Home'}).catch(err => {err})
     }
   },
 }

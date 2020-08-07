@@ -5,7 +5,7 @@
       dark
     >
       <v-toolbar-title v-if="googleUser">{{googleUser['Ot']['Cd']}} :</v-toolbar-title>
-      <v-toolbar-items class="hidden-sm-and-down" v-if="googleUser">
+      <v-toolbar-items v-if="googleUser"> <!-- class="hidden-sm-and-down"  -->
         <v-menu open-on-hover offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn 
@@ -27,7 +27,7 @@
         </v-menu>
       </v-toolbar-items>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items>
         <v-btn @click="signIn" text v-if="!googleUser">Sign In</v-btn>
         <v-btn @click="signOut" text v-if="googleUser">Sign Out</v-btn>
       </v-toolbar-items>
@@ -43,8 +43,7 @@ export default {
       this.updateUser(googleUser)
     },
     async signOut(){
-      const response = await this.$gAuth.signOut()
-      console.log(response)
+      await this.$gAuth.signOut()
       this.updateUser(undefined)
     },
     to_projects(){
